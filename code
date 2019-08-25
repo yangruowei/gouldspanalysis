@@ -1,0 +1,96 @@
+# Set up
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# import data
+gould = pd.read_csv("/Users/ruowei/Desktop/ds learning/NBER data/gouldallr.csv")
+
+# examine data structure
+gould.head()
+print(gould.info())
+
+# examine categorical variables
+# Name
+gould['NAME'].value_counts()   
+len(gould.NAME.unique()) 
+gould['NAME'].isnull().sum() 
+# Rank
+gould['RANK'].value_counts()
+len(gould.RANK.unique())  
+gould['RANK'].isnull().sum()
+# American
+gould['AMERICAN'].value_counts()  
+gould['AMERICAN'].isnull().sum() 
+# Ancestry
+gould['ANCESTRY'].value_counts()  
+len(gould.ANCESTRY.unique())
+gould['ANCESTRY'].isnull().sum() 
+# state/country of birth 
+gould['BRN_STAT'].value_counts()  
+len(gould.BRN_STAT.unique())
+gould['BRN_STAT'].isnull().sum() 
+# County of birth 
+gould['BRN_CNTY'].value_counts()  
+len(gould.BRN_CNTY.unique())
+gould['BRN_CNTY'].isnull().sum() 
+# town of birth 
+gould['BRN_TOWN'].value_counts()  
+len(gould.BRN_TOWN.unique())
+gould['BRN_TOWN'].isnull().sum() 
+#.....for all categorical variables
+# Bulk check example: Education-related columns
+edu_cols = [col for col in gould.columns if 'EDC' in col]
+print(edu_cols)
+gould[edu_cols].isnull().sum() 
+# another exapmle: comments columns
+comm_cols = [col for col in gould.columns if 'COM' in col]
+print(comm_cols)
+gould[comm_cols].isnull().sum() 
+
+# examine numerical variables
+# example: Height
+gould['HEIGHT'].describe() 
+gould['HEIGHT'].isnull().sum()
+# ... for all numerical variables
+
+# subset original dataset
+# select interested columns
+selected_columns = ['NAME','RANK','AMERICAN','ANCESTRY','BRN_STAT','BRTH_FAT','ENS_WHER','ENS_WHAT','EYE_CLR','ST_VIGOR','ATHLETIC','EXAMINER','RSTATE','MARREE','HAIRCOLR','EYEPROM','COMPLXEE','MUSCLEE','TEETHEE','EXAMPLAC','HEIGHT','HYT_NCK','HYT_PEM','BRD_NCK','BRD_PLV','CIR_WST','CIR_HIP','LGH_ARM','CAP_CHES','WEIGHT','DYNAMOME','AGE','SHOULDER'] 
+gould_s = gould[selected_columns]
+# save subsetted dataset
+gould_s.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_s.csv")
+
+# rename columns to be more readable
+gould_s.rename(columns={'BRN_STAT': 'St_Ctry_Birth', 'BRTH_FAT': 'Father_birthplace', 'ENS_WHER': 'Enlist_location', 'ENS_WHAT': 'Enlist_term', 'ATHLETIC': 'Athletic_Recreation', 'RSTATE': 'Regi_state', 'MARREE': 'Marital_status', 'EYEPROM': 'Eyes_prom', 'COMPLXEE': 'Complexion', 'MUSCLEE': 'Muscle_dev', 'TEETHEE': 'Teeth_con', 'HYT_NCK': 'Height_to_neck','HYT_PEM': 'Height_to_perinaeum','BRD_NCK': 'Neck_breadth', 'BRD_PLV':'Pelvis_breadth','CIR_WST':'Waist_circumference','CIR_HIP':'Hip_circumference','LGH_ARM':'Arm_length','CAP_CHES': 'Chest_capacity','SHOULDER': 'Shoulder_width'}, inplace=True)   
+# format column names:
+# Capitalize all columns:
+gould_s.columns = gould_s.columns.str.capitalize()
+# reorder columns to be rougly in the following groups: demographics, military information, anthropometrics, vigor, appearance, health condition.
+columns_order = ['Name', 'Age', 'American', 'Ancestry', 'St_ctry_birth', 'Father_birthplace', 'Marital_status', 'Rank', 'Enlist_location', 'Enlist_term', 'Regi_state', 'Examiner', 'Examplac' ,'Height', 'Weight', 'Waist_circumference', 'Hip_circumference', 'Shoulder_width', 'Arm_length','Height_to_neck','Height_to_perinaeum', 'Neck_breadth', 'Pelvis_breadth', 'Chest_capacity', 'Dynamome', 'Eye_clr', 'Haircolr', 'Complexion', 'Muscle_dev', 'St_vigor', 'Athletic_recreation', 'Eyes_prom', 'Teeth_con']
+gould_formatted = gould_s.reindex(columns=columns_order)
+#save formatted dataset
+gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_formatted.csv")
+
+# can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
+# examine missing values from entire dataset
+print(gould.isnull().values.sum())
+perc_missing = 3360274/(229*20406)
+perc_missing
+# examine missingness by column
+print(gould.isnull().sum())
+# drop columns with more than 80% missingness
+thresh = len(gould)*.2
+gould.dropna(thresh = thresh, axis = 1, inplace = True)
+# Look at Rank distributions
+import seaborn as sns 
+rank_dist = gould['RANK'].value_counts() 
+sns.set(style="darkgrid") 
+sns.barplot(rank_dist.index, rank_dist.values, alpha=0.9) 
+plt.title('Frequency Distribution of Military Rank') 
+plt.ylabel('Number of Occurrences', fontsize=12) 
+plt.xlabel('Rank', fontsize=12) 
+plt.show()  
+    
+    
+%save -r gouldanalysis 1-99999
