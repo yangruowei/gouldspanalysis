@@ -75,8 +75,8 @@ gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_format
 # basic cleaning of each variable
 # Name
 gould_formatted['Name'] = gould_formatted['Name'].astype('str')
-replace_list = ['NO NAME GIVEN', 'NONE GIVEN', 'NOT LEGIBLE', 'NO NAME', 'NOT GIVEN']
-gould_formatted['Name'].replace(replace_list, np.NaN)
+gould_formatted['Name'] = gould_formatted['Name'].replace(['NO NAME GIVEN', 'NONE GIVEN', 'NOT LEGIBLE', 'NO NAME', 'NOT GIVEN'], None) 
+
 # Age
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
