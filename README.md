@@ -24,6 +24,6 @@ The raw dataset is pretty messy in the following aspects:
    Some questions can be asked more succinctly, rather than spreading the answers to the same question into separate questions. For example: month day and year of immigration can be organized as a single date variable.
 
 ### Steps for data processing
-## selecting and organizing columns
+#### selecting and organizing columns
 I checked all 229 variables in the variables list and selected 33 variables with reasonably complete information. I then re-named all columns for better readability, standardized the column names (all capitalized) and re-orderd the columns that could be roughly grouped into the following groups: demographics, military information, anthropometrics, vigor, appearance, health condition. 
-## data cleaning for specific variables
+#### data cleaning for specific variables
