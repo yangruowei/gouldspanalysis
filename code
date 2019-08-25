@@ -72,6 +72,13 @@ gould_formatted = gould_s.reindex(columns=columns_order)
 #save formatted dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_formatted.csv")
 
+# basic cleaning of each variable
+# Name
+gould_formatted['Name'] = gould_formatted['Name'].astype('str')
+replace_list = ['NO NAME GIVEN', 'NONE GIVEN', 'NOT LEGIBLE', 'NO NAME', 'NOT GIVEN']
+gould_formatted['Name'].replace(replace_list, np.NaN)
+# Age
+
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
 # examine missing values from entire dataset
 print(gould.isnull().values.sum())
