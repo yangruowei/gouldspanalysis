@@ -1,13 +1,15 @@
 This is my first data science project to practice data processing and analysis techniques using python. I use the Ipython IDE. 
 
-###Data source:
+### Data source:
+
 I downloaded the gould sample from the National Bureau of Economic Research (NBER) website: https://www.nber.org/gould/.
 Briefly, the gould sample is a historical sample of Union Army soldiers in the U.S. 
 Here is the variable list:
 https://www.nber.org/gould/variable_list.lst
 The dataset is tab delimited so I transformed it to real CSV format in excel for further processing.
 
-###Overview:
+### Overview:
+
 The raw dataset is pretty messy in the following aspects:
 1. A lot of variables are highly missing: about 70% of data is missing in the entire dataset. The dataset has 229 variables with 20,406 rows, and only 90 columns have less than 80% of information missing. 
 2. Duplicate columns: Same information was asked slightly differently; I suspect that this is because different forms are used for different people. For example: 
