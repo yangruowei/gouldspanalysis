@@ -118,6 +118,18 @@ gould_formatted['Rank'] = gould_formatted['Rank'].replace(['SGT', 'SARGEANT', 'Q
  '1. SERG.', 'COMMISSAR SGT.', '2SG', 'ORD. SERGT', 'SARFT', 'SERGT MAJOR', '1 SERTG', 'M SERGT', '2ND SEARG', \
  '1ST SEGT', 'SARGT MAJOR', 'SEGT 1ST', '1ST SEARG', '2 SEARG', 'PRIV./SERGEANT', 'SEARGEANT', 'MAJOR SEARGENT', \
  'Q.M. SEGT', '1ST SEARGANT', '3SERGEANT', 'ORD. SERGT.', 'COMM SERGT', 'QUARTERMAS. SER'], 'SERGEANT')
+ # "captain":
+selected_cap = gould_formatted[gould_formatted['Rank'].str.contains('CAPT|CPTN|CAP') == True]
+cap_list = selected_cap['Rank'].unique() 
+print(cap_list)
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CAPT','CAP', 'CPTN', 'PRIVATE/CAPTAIN', 'CAPT.', 'PRIV./CAPTAIN'], 'CAPTAIN')
+# "lieutenant"
+selected_lt = gould_formatted[gould_formatted['Rank'].str.contains('LIEU|LT|LIE|LEI') == True]
+print(selected_lt['Rank'].unique())
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['LIEUTENANT', 'LEITUNANT', 'LT.', '2ND LIETUNANT', \
+'LIEUT.', 'LT', '1ST LIEUT.', '1 LIEUT', 'LIEUT', '2ND LIEUT.', '2 LIEUT', '1ST LIEUT', 'LIEUT COL', \
+'2D LIEUT', '2ND LT', '2 LT', '2 LIEUTENANT', '1 LIET', '2ND LIEUT', 'LIET.', 'LIEUTNANT', 'LIEUTANANT'], 'LIEUTENANT')
+
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
 # examine missing values from entire dataset
