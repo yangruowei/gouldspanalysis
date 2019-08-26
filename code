@@ -101,9 +101,23 @@ gould_formatted['Rank'] = gould_formatted['Rank'].replace(['PR','PRIV', 'P', 'PR
 list = gould_formatted[gould_formatted['Rank'].str.contains("CO") == True]
 cop_list = list['Rank'].unique() 
 print(cop_list) 
-gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CORP', 'CORPOREAL', 'CORPROAL', 'COPORAL', 'CORPL', '2 CORP', 'CORPOAL', 'COPR', 'PRIVATE CORP.', 'PRIVATE CORP', 'COPL', 'CORP.', 'CORORAL', 'CORPL.', 'COPRORAL', 'PRIV./CORPORAL', '1ST COPL' '2ND CORPORAL', 'COPER', 'PRIV CORPORAL', 'CORPPORAL', '1 CORP', 'PRIVATE CORPORA', 'COL'], 'CORPORAL')
-
-
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CORP', 'CORPOREAL', 'FORPORAL', \
+'CORPROAL', 'COPORAL', 'CORPL', '2 CORP', 'CORPOAL', 'COPR', 'PRIVATE CORP.', 'PRIVATE CORP', \
+'COPL', 'CORP.', 'CORORAL', 'CORPL.', 'COPRORAL', 'PRIV./CORPORAL', '1ST COPL' '2ND CORPORAL', \
+'COPER', 'PRIV CORPORAL', 'CORPPORAL', '1 CORP', 'PRIVATE CORPORA', 'COL'], 'CORPORAL')
+# "sergeant":
+selected_ser = gould_formatted[gould_formatted['Rank'].str.contains('SER|SAR|SG|SEAR|SEG|SRG') == True]
+ser_list = selected_ser['Rank'].unique() 
+print(ser_list)
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['SGT', 'SARGEANT', 'QTRMSTR SGT', '1 SERGT', 'SARGNT', \
+'1 SERGEANT', '1SG', '1ST SGT', 'QURTRMSTR SGT', '1ST SARGEANT', 'SERGT', 'SGT.', 'SARGT', 'SEARGANT', \
+'2 SERGT', 'SERGT.', '4 SERGT', 'SARGET', 'SERGEANT-BAND', 'SEGT', 'QMASTER SERGT', '2ND SERGT', 'SERGENT', \
+'1 SEARG', 'SEREGEANT', '1ST SERGEANT', 'COM SEARGANT', 'COMMISARY SERG.', 'SRGT', 'SGNT', 'SERG', \
+ '1ST SERGT', 'SERGT ORDERLY', '1ST SEARG.', 'SADDLER SGT', 'SERGEANT MAJOR', 'ORD SERGT', 'SEARGENT', \
+ 'ORDERLY SERGT', 'SARGEANT/MAJOR', 'COMMISSARY SERG', '3 SERGT', '1 SARGEANT', '2 DUTY SERGT', 'SARGENT', \
+ '1. SERG.', 'COMMISSAR SGT.', '2SG', 'ORD. SERGT', 'SARFT', 'SERGT MAJOR', '1 SERTG', 'M SERGT', '2ND SEARG', \
+ '1ST SEGT', 'SARGT MAJOR', 'SEGT 1ST', '1ST SEARG', '2 SEARG', 'PRIV./SERGEANT', 'SEARGEANT', 'MAJOR SEARGENT', \
+ 'Q.M. SEGT', '1ST SEARGANT', '3SERGEANT', 'ORD. SERGT.', 'COMM SERGT', 'QUARTERMAS. SER'], 'SERGEANT')
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
 # examine missing values from entire dataset
