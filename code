@@ -73,11 +73,33 @@ gould_formatted = gould_s.reindex(columns=columns_order)
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_formatted.csv")
 
 # basic cleaning of each variable
+gould_formatted = pd.read_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_formatted.csv")
 # Name
-gould_formatted['Name'] = gould_formatted['Name'].astype('str')
 gould_formatted['Name'] = gould_formatted['Name'].replace(['NO NAME GIVEN', 'NONE GIVEN', 'NOT LEGIBLE', 'NO NAME', 'NOT GIVEN'], None) 
-
+gould_formatted['Name'] = gould_formatted['Name'].astype('str')
 # Age
+gould_formatted['Age'] = gould_formatted['Age'].replace('BROWN', np.nan) 
+gould_formatted['Age'] = gould_formatted['Age'].astype('float64') 
+# American
+gould_formatted['American'] = gould_formatted['American'].replace(['T', 'F'], ['Y', 'N']) 
+gould_formatted['American'] = gould_formatted['American'].astype('category') 
+# Ancestry: missing too much information, drop column
+gould_formatted = gould_formatted.drop("Ancestry", axis=1) 
+# birth place
+gould_formatted['St_ctry_birth'] = gould_formatted['St_ctry_birth'].astype('category') 
+# Father birth place
+gould_formatted['Father_birthplace'] = gould_formatted['Father_birthplace'].replace(['??', '?'], None) 
+gould_formatted['Father_birthplace'] = gould_formatted['Father_birthplace'].astype('category') 
+# Marital status
+gould_formatted['Marital_status'] = gould_formatted['Marital_status'].replace('BROWN', np.nan)
+gould_formatted['Marital_status'] = gould_formatted['Marital_status'].astype('category') 
+# Rank
+# Renaming "private": 
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['PR','PRIV', 'P', 'PRIVTE', 'RIVATE', 'PRT', 'PRIAVTE', 'PRI', 'P.', 'PRIVAATE', 'PRIVAE', 'PRVATE', 'PRIVAT', 'PR.', 'PRIATE', 'PRIVAYE', 'PRRIV', 'PPRIVATE', 'PRIVATE.', 'PRIVATTE', 'PRVIATE', 'PVT'], 'PRIVATE')
+# "coporal": 
+# Find all possible combinations
+
+
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
 # examine missing values from entire dataset
