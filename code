@@ -98,6 +98,10 @@ gould_formatted['Marital_status'] = gould_formatted['Marital_status'].astype('ca
 gould_formatted['Rank'] = gould_formatted['Rank'].replace(['PR','PRIV', 'P', 'PRIVTE', 'RIVATE', 'PRT', 'PRIAVTE', 'PRI', 'P.', 'PRIVAATE', 'PRIVAE', 'PRVATE', 'PRIVAT', 'PR.', 'PRIATE', 'PRIVAYE', 'PRRIV', 'PPRIVATE', 'PRIVATE.', 'PRIVATTE', 'PRVIATE', 'PVT'], 'PRIVATE')
 # "coporal": 
 # Find all possible combinations
+list = gould_formatted[gould_formatted['Rank'].str.contains("CO") == True]
+cop_list = list['Rank'].unique() 
+print(cop_list) 
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CORP', 'CORPOREAL', 'CORPROAL', 'COPORAL', 'CORPL', '2 CORP', 'CORPOAL', 'COPR', 'PRIVATE CORP.', 'PRIVATE CORP', 'COPL', 'CORP.', 'CORORAL', 'CORPL.', 'COPRORAL', 'PRIV./CORPORAL', '1ST COPL' '2ND CORPORAL', 'COPER', 'PRIV CORPORAL', 'CORPPORAL', '1 CORP', 'PRIVATE CORPORA', 'COL'], 'CORPORAL')
 
 
 
