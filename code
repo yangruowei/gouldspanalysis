@@ -104,7 +104,7 @@ print(cop_list)
 gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CORP', 'CORPOREAL', 'FORPORAL', \
 'CORPROAL', 'COPORAL', 'CORPL', '2 CORP', 'CORPOAL', 'COPR', 'PRIVATE CORP.', 'PRIVATE CORP', \
 'COPL', 'CORP.', 'CORORAL', 'CORPL.', 'COPRORAL', 'PRIV./CORPORAL', '1ST COPL' '2ND CORPORAL', \
-'COPER', 'PRIV CORPORAL', 'CORPPORAL', '1 CORP', 'PRIVATE CORPORA', 'COL'], 'CORPORAL')
+'COPER', 'PRIV CORPORAL', 'CORPPORAL', '1 CORP', '1ST COPL', '2ND CORPORAL', 'PRIVATE CORPORA', 'COL'], 'CORPORAL')
 # "sergeant":
 selected_ser = gould_formatted[gould_formatted['Rank'].str.contains('SER|SAR|SG|SEAR|SEG|SRG') == True]
 ser_list = selected_ser['Rank'].unique() 
@@ -129,6 +129,44 @@ print(selected_lt['Rank'].unique())
 gould_formatted['Rank'] = gould_formatted['Rank'].replace(['LEITUNANT', 'LT.', '2ND LIETUNANT', \
 'LIEUT.', 'LT', '1ST LIEUT.', '1 LIEUT', 'LIEUT', '2ND LIEUT.', '2 LIEUT', '1ST LIEUT', 'LIEUT COL', \
 '2D LIEUT', '2ND LT', '2 LT', '2 LIEUTENANT', '1 LIET', '2ND LIEUT', 'LIET.', 'LIEUTNANT', 'LIEUTANANT'], 'LIEUTENANT')
+# 'handyman'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['ARTIFICER','SUPPORT', 'BLACKSMITH', 'CARPENTER', 'TEAMSTER', \
+'ARTISAN', 'WAGONER', 'STEWARD', 'SADDLER', 'COOK', 'COAL HEAVER', 'CLERK', 'QMS', 'SUTLER', \
+'SADLER', 'SWEEP', 'HOSTLER', 'COLORBEARER', 'ARTIZAN?', "CAPTAIN'S COOK", 'HORSE TAMER', 'FARMER', "SUTTER'S CLERK", \
+'HORSE DOCTOR', 'GROCERY MAN AT', 'ARTIFICER?', 'MILLER/PRIVATE', 'ACTING MASTER', 'WAGGONEER', \
+'ORDERLY', 'PRIVATE (COOK)', 'PRIVATE-COOK', 'MESSENGER', 'MAIL AGENT', 'MILLER', 'TEACHER'], 'HANDYMAN/SUPPORT')
+# 'seaman'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['SAILOR', 'ORD SEA', 'A SEA', 'MARINE', 'ABLE SEAMAN', \
+'ORD SEAMAN', 'O SEA', 'O SEAMAN'], 'SEAMAN')
+# 'landsman'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['LANDMAN', 'LAUDMAN', 'LAURMAN', 'LAUDS', \
+'LAUDSMAN', 'LANDMAN?'], 'LANDSMAN')
+# 'fireman'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['2 C FIREMAN', '1 C FIREMAN', '1 FIRMAN', '2 FIREMAN', \
+'2C FIREMAN'], 'FIREMAN')
+# 'Musician'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['MUSICIAN', 'DRUMMER', 'BUGLER', 'MUS', 'BAND', 'BUGLEMAN', \
+'MUSIC', 'PRINCIPAL MUSIC', 'DRUM MAJOR', 'PRIVATE/DRUMMER', 'PRIVATE/BUGLER', 'LEADER OF BAND', \
+'CHIEF BUGLER', 'CHIEF MUSICIAN', 'PRIV & MUSICIAN', 'PRIVATE-MUSICIA', 'BUGLAR'], 'MUSICAN/BAND')
+# "doctor/hospital"
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['DOCTOR', 'SURGEON', 'ASR', 'HOSPITAL STEWAR', \
+'HOSP. STEWARD', 'A.A. SURGEON', 'PHYSICIAN', 'ASSIT SURGEON', 'CO. SURGEON', 'COMMIS. SURGEON', \
+'HOSPITAL ST.', 'ASST. SURGEON', 'HOSPIT. STEWART', 'ASS SURG', 'ACTING SURGEON', 'HOST. STEW.', \
+'HSPTL STEWARD', 'A A SURGEON', 'HOSP STEWARD'], 'DOCTOR/HOSPITAL')
+# 'clergy'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CHAPLAIN', 'MINISTER', 'REVEREND', \
+'MINISTER IN', 'PRIEST', 'CLERGYMAN'], 'CLERGY')
+# 'other ranked officers'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['MAJOR', 'COLONEL', 'CHIEF OFFICER', \
+'GENERAL', 'COM IN CHIEF', 'CHIEF', 'FIBE MAJOR', 'USC COM', 'COM.'], 'OTHER_RANKS')
+# 'Missing'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['NO DATA', 'ILLEGIBLE', 'NO RANK GIVEN', \
+'I JUST WENT ON', '????', 'NO RANK INFO', 'S??', 'US SC', 'PA', \
+'THE NEXT ONE', '33 NY', 'N', '1', '18 KY'], None)
+# 'all others'
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CITIZEN', 'BOY', 'PIONEER', 'UNASSIGNED', \
+'CAFLAUI', 'CITIZEN&SUTTER?', 'SUBSTITUTE', 'RECRUIT?', 'DRAFTED', 'GUNMAN', 'LARQUIAT', 'RECRUIT'], 'OTHER')
+
 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
