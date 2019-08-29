@@ -196,16 +196,16 @@ gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['1 YEAR
 '1YEAR/WAR', '1 YRS', '1/ WAR', '1YR/WAR', '1 YERA', '1 YR/ WAR', '1YEAR/ WAR', '1/WAR', '1 YEAR\WAR', \
 '1 YR./ WAR', '1Y R', '1 1/2 YEAR'], '1 TO 2 YEARS')
 # 5 or more years
-gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['5 YRS', '5', '5 YEAR', \
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['5 YEARS', '6 YEARS', '5 YRS', '5', '5 YEAR', \
 '6', '6 YRS', '6 YEAR', '5 1/2 YRS', '5 YRS 6 MO', '5 YR 4 MO', '5 YR 6 MO', '8 YRS', '5 YR 3 MO', '28 YRS', '5 YRS 3 MO', \
 '5 1/2 YR', '8', '8 YEARS', '7 YEARS', '33', 'LIFE', '5 YR 10 MO', '9 YEARS', '5YRS 4MOS', \
 '15', '5 YR 9 MO', '30', '32', '5 YRS 7 MO', '15 YEARS', '20 YRS', '11 YRS', 'INDFEINITE', 'INDEFINITE', \
 '5 3/4 YR', '1O YRS', '13', '18 YEARS', '5 YRS 4 MO', '10 YEARS', '10 YRS', '5 + YEARS', '5 YR 8 MO'], '5 OR MORE YEARS')
 # 4 to 5 years
-gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['4 YRS', '4', '4 YR', '4 YR 6 MO', '4 YRS 3 MO', \
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['4 YEARS', '4 YRS', '4', '4 YR', '4 YR 6 MO', '4 YRS 3 MO', \
 '4 1/2 YRS', '4 YR 2 MO', '4 1/2 YR'], '4 TO 5 YEARS')
 # 3 to 4 years
-gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['3 YRS', '3', '3 YR', '3 YEAR', '3 YS', \
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['3 YEARS', '3 YRS', '3', '3 YR', '3 YEAR', '3 YS', \
 '3YRS/3YRS', '3YRS', '3YEARS', '9MOS/3YRS', '3 YERS', '3 YEASR', '3  YRS', '3 YSR', '3 YEARSS', \
 '3 EYARS', '3 YR/WAR', '3/WAR', '3YR/WAR', '3 YREAS', '3 UEARS', '2YRS/3YRS', '3 YEAERS', '3 RYS', \
 '3 YR.', '2Y/3Y', '1YR/3YRS', '1 YR/3 YRS', '3 YEARD', 'WAR-3 YR.', '3  YEARS', '3YRS/1YR', \
