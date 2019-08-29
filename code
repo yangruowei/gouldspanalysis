@@ -126,7 +126,7 @@ gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CAPT','CAP', 'CPTN',
 # "lieutenant"
 selected_lt = gould_formatted[gould_formatted['Rank'].str.contains('LIEU|LT|LIE|LEI') == True]
 print(selected_lt['Rank'].unique())
-gould_formatted['Rank'] = gould_formatted['Rank'].replace(['LIEUTENANT', 'LEITUNANT', 'LT.', '2ND LIETUNANT', \
+gould_formatted['Rank'] = gould_formatted['Rank'].replace(['LEITUNANT', 'LT.', '2ND LIETUNANT', \
 'LIEUT.', 'LT', '1ST LIEUT.', '1 LIEUT', 'LIEUT', '2ND LIEUT.', '2 LIEUT', '1ST LIEUT', 'LIEUT COL', \
 '2D LIEUT', '2ND LT', '2 LT', '2 LIEUTENANT', '1 LIET', '2ND LIEUT', 'LIET.', 'LIEUTNANT', 'LIEUTANANT'], 'LIEUTENANT')
 
