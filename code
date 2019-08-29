@@ -220,6 +220,11 @@ gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['9 MOS'
 # missing
 gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['NO DATA', 'INDEPENDAN', '?', 'NO TIME', \
 'E', 'WI', 'Q YR', 'BUFFALO', 'YRS', 'ILLEGIBLE', 'NO INFO', 'NEWBURN', 'WARREN', 'A', 'BROWN'], None)
+# During war
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['WAR', 'DURING WAR', 'THE WAR'], 'WAR/NO SPECIFIED TERM')
+# Other unspecified
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['REJECTED', 'TILL MARCH', '1861'], \
+'OTHER UNSPECIFIED')
 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
