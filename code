@@ -199,7 +199,7 @@ gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['1 YEAR
 gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['5 YRS', '5', '5 YEAR', \
 '6', '6 YRS', '6 YEAR', '5 1/2 YRS', '5 YRS 6 MO', '5 YR 4 MO', '5 YR 6 MO', '8 YRS', '5 YR 3 MO', '28 YRS', '5 YRS 3 MO', \
 '5 1/2 YR', '8', '8 YEARS', '7 YEARS', '33', 'LIFE', '5 YR 10 MO', '9 YEARS', '5YRS 4MOS', \
-'15', '5 YR 9 MO', '30', '32', '5 YRS 7 MO', '15 YEARS', '20 YRS', '11 YRS', 'INDFEINITE', \
+'15', '5 YR 9 MO', '30', '32', '5 YRS 7 MO', '15 YEARS', '20 YRS', '11 YRS', 'INDFEINITE', 'INDEFINITE', \
 '5 3/4 YR', '1O YRS', '13', '18 YEARS', '5 YRS 4 MO', '10 YEARS', '10 YRS', '5 + YEARS', '5 YR 8 MO'], '5 OR MORE YEARS')
 # 4 to 5 years
 gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['4 YRS', '4', '4 YR', '4 YR 6 MO', '4 YRS 3 MO', \
