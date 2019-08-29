@@ -11,6 +11,7 @@ gould.head()
 print(gould.info())
 
 # examine categorical variables
+
 # Name
 gould['NAME'].value_counts()   
 len(gould.NAME.unique()) 
@@ -74,25 +75,33 @@ gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_format
 
 # basic cleaning of each variable
 gould_formatted = pd.read_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_formatted.csv")
+
 # Name
 gould_formatted['Name'] = gould_formatted['Name'].replace(['NO NAME GIVEN', 'NONE GIVEN', 'NOT LEGIBLE', 'NO NAME', 'NOT GIVEN'], None) 
 gould_formatted['Name'] = gould_formatted['Name'].astype('str')
+
 # Age
 gould_formatted['Age'] = gould_formatted['Age'].replace('BROWN', np.nan) 
 gould_formatted['Age'] = gould_formatted['Age'].astype('float64') 
+
 # American
 gould_formatted['American'] = gould_formatted['American'].replace(['T', 'F'], ['Y', 'N']) 
 gould_formatted['American'] = gould_formatted['American'].astype('category') 
+
 # Ancestry: missing too much information, drop column
 gould_formatted = gould_formatted.drop("Ancestry", axis=1) 
+
 # birth place
 gould_formatted['St_ctry_birth'] = gould_formatted['St_ctry_birth'].astype('category') 
+
 # Father birth place
 gould_formatted['Father_birthplace'] = gould_formatted['Father_birthplace'].replace(['??', '?'], None) 
 gould_formatted['Father_birthplace'] = gould_formatted['Father_birthplace'].astype('category') 
+
 # Marital status
 gould_formatted['Marital_status'] = gould_formatted['Marital_status'].replace('BROWN', np.nan)
 gould_formatted['Marital_status'] = gould_formatted['Marital_status'].astype('category') 
+
 # Rank
 # Renaming "private": 
 gould_formatted['Rank'] = gould_formatted['Rank'].replace(['PR','PRIV', 'P', 'PRIVTE', 'RIVATE', 'PRT', 'PRIAVTE', 'PRI', 'P.', 'PRIVAATE', 'PRIVAE', 'PRVATE', 'PRIVAT', 'PR.', 'PRIATE', 'PRIVAYE', 'PRRIV', 'PPRIVATE', 'PRIVATE.', 'PRIVATTE', 'PRVIATE', 'PVT'], 'PRIVATE')
@@ -168,6 +177,47 @@ gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CITIZEN', 'BOY', 'PI
 'CAFLAUI', 'CITIZEN&SUTTER?', 'SUBSTITUTE', 'RECRUIT?', 'DRAFTED', 'GUNMAN', 'LARQUIAT', 'RECRUIT'], 'OTHER')
 # drop first two rows with skipped entries
 gould_formatted = gould_formatted.drop([0, 1]) 
+
+# Enlist location
+gould_formatted['Enlist_location'] = gould_formatted['Enlist_location'].astype('category') 
+
+# Enlist term
+# 2 to 3 years
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['2 YEARS', '2YRS 9MOS', \
+'2 YR 3 MO', '2YRS 2MS', '2 1/2 YRS' \
+'2 YRS', '2', '2YRS', \
+'1YR/THEN 2', '2 YR'], '2 TO 3 YEARS')
+# 1 to 2 years
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['1 YEAR', '18 MONTHS', '19 MONTHS', \
+'18 MOS', '17MOS', '1YR & 3 MO', '16MOS', '18 MO', '1 1/2 YR', \
+'1 YR', '1', '1 YR/WAR' \
+'1 YEAR/WAR', '1 YR/WAR', '1 YEAR/WAR', '1YERA/WAR', '1 YEARS', '1 YR./WAR', '1YR', '9MOS; 1YR', \
+'9MOS/1YR', '1YR./WAR', 'I YR', '1 YR.', '1 YAR', '1YEAR', \
+'1YEAR/WAR', '1 YRS', '1/ WAR', '1YR/WAR', '1 YERA', '1 YR/ WAR', '1YEAR/ WAR', '1/WAR', '1 YEAR\WAR', \
+'1 YR./ WAR', '1Y R'], '1 TO 2 YEARS')
+# 6 years
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['6', '6 YRS', '6 YEAR'], '6 YEARS')
+# 5 years
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['5 YRS', '5', '5 YEAR'], '5 YEARS')
+# 4 to 5 years
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['4 YRS', '4', '4 YR', '4 YR 6 MO', '4 YRS 3 MO', \
+'4 1/2 YRS', '4 YR 2 MO', '4 1/2 YR'], '4 TO 5 YEARS')
+# 3 to 4 years
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['3 YRS', '3', '3 YR', '3 YEAR', '3 YS', \
+'3YRS/3YRS', '3YRS', '3YEARS', '9MOS/3YRS', '3 YERS', '3 YEASR', '3  YRS', '3 YSR', '3 YEARSS', \
+'3 EYARS', '3 YR/WAR', '3/WAR', '3YR/WAR', '3 YREAS', '3 UEARS', '2YRS/3YRS', '3 YEAERS', '3 RYS', \
+'3 YR.', '2Y/3Y', '1YR/3YRS', '1 YR/3 YRS', '3 YEARD', 'WAR-3 YR.', '3  YEARS', '3YRS/1YR', \
+'3 YRS.', '3 YAERS', '8MO/3YR', '3 YEAT', '3YEAR/WAR', "3 YEARS'", '3 YEATS', "3YRS; 1YR", '3 YEAS', \
+'3 YEARWS', '3 Y EARS', '9MOS/3 YRS', '3MOS/3YRS', '3 YEARAS', '3YRS; 1 YR', '3 YERAS', '9 MOS/3 YR', \
+'3YRS 3MOS', '3YRS 9MOS', '3 YRS 9 MO', \
+'3 1/2 YRS.', '3YRS 3 MOS', '3 1/2 YRS', '3YRS 8MOS', '3 YRS 3MOS', '3 YR 9 MO'], '3 TO 4 YEARS')
+# less than 1 year
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['9 MOS', '3 MONTHS', '3 MOS', '6 MONTHS', \
+'9 MONTHS', '6 MO/WAR', '6 WEEKS', '7 MONTHS', '9 MO./WAR', '6MO./WAR', '9 MO', '10 MOS', '9 MOS.', '7 MO/WAR', \
+'100 DAYS'], 'LESS THAN 1 YEAR')
+# missing
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['NO DATA', 'INDEPENDAN', '?', 'NO TIME', \
+'E', 'WI', 'Q YR', 'BUFFALO', 'YRS', 'ILLEGIBLE', 'NO INFO', 'NEWBURN', 'WARREN', 'A', 'BROWN'], None)
 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
