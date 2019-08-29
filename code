@@ -166,7 +166,8 @@ gould_formatted['Rank'] = gould_formatted['Rank'].replace(['NO DATA', 'ILLEGIBLE
 # 'all others'
 gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CITIZEN', 'BOY', 'PIONEER', 'UNASSIGNED', \
 'CAFLAUI', 'CITIZEN&SUTTER?', 'SUBSTITUTE', 'RECRUIT?', 'DRAFTED', 'GUNMAN', 'LARQUIAT', 'RECRUIT'], 'OTHER')
-
+# drop first two rows with skipped entries
+gould_formatted = gould_formatted.drop([0, 1]) 
 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
