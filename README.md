@@ -17,7 +17,7 @@ The raw dataset is pretty messy in the following aspects:
    All following columns are about grandparent birth places: BRTH_GP1, BRTH_GP2, GRNDBEE, GRNDFBEE, GRNDMBEE, USGP1, USGP2, USGRAND 
 3. A lot of entry errors and non-standardized entry. 
    Wrong information. For example: answer to marital status: Brown.
-   Same information entered differently. For example:  Military rank: PRIVATE/PR/P/P./PRIVTE/PRT, SERGEANT/SARGEANT/SERGT/SGT/SARGT/1 SERGT/2 SERGT…). In the "name" column, there are also a lot of rows with exact the same name (since a lot of names are incomplete, sometimes with only last name, sometimes fully spelled first and last names, other times initial first, with or without middle initial and/or period, and full last, sometimes just a single letter). For example: "Smith" appeared 32 times in the dataset.
+   Same information entered differently. For example:  Military rank: PRIVATE/PR/P/P./PRIVTE/PRT, SERGEANT/SARGEANT/SERGT/SGT/SARGT/1 SERGT/2 SERGT…). In the "name" column, there are also a lot of rows with exact the same name (since a lot of names are incomplete, sometimes with only last name, sometimes fully spelled first and last names, other times initial first, with or without middle initial and/or period, and full last, sometimes just a single letter). For example: "Smith" appeared 35 times in the dataset.
 4. Survey organization issues. This needs to be addressed in data processing.
    No unique ID assigned for each entry
    After loading the dataset into python, the type of data for each column is not organized by the nature of data, for example, age is a non-null object rather than a float type
