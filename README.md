@@ -155,6 +155,7 @@ YELLOW       3
 OTHER        3
 
 
+Doesn't seem to convert to categorical variables once saved to dataset
 
 How to process place/location variables? 
 St_ctry_birth, Father_birthplace, Enlist_location, Regi_state, Examplac.
