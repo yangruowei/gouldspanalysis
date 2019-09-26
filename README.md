@@ -25,8 +25,9 @@ The raw dataset is pretty messy in the following aspects: \
 
 ### Steps for data processing
 #### selecting and organizing columns
-I checked all 229 variables in the variables list and selected 33 variables with reasonably complete information. I then re-named all columns for better readability, standardized the column names (all capitalized) and re-orderd the columns that could be roughly grouped into the following groups: demographics, military information, anthropometrics, vigor, appearance, health condition. 
+I checked all 229 variables in the variables list and selected 33 variables with reasonably complete information. \
+I then re-named all columns for better readability, standardized the column names (all capitalized) and re-orderd the columns that could be roughly grouped into the following groups: demographics, military information, anthropometrics, vigor, appearance, health condition. 
 #### data cleaning for specific variables
-A lot of the string variables are quite messy, with no standardized format for answers. I examined these one by one and standardized or re-categorized the possible answers. \
-  First, redesignate all seemingly unreasonable or missing answers (such as "NOT GIVEN" in the "Name" column and "BROWN" in the "Age" column) to None or NANs. \
-  Upon examining the names of the soldiers, there were several cases of people with the same name. For example, 35 observations had only the name "Smith" (most frequently occurring). There is probably a need to deduplicate the observations with similar information that could be indicating the same soldier, since there were no unique personal IDs. For example, could J. SMITH and JOHN SMITH and J SMITH be the same person? I used the pandas dedupe package to achieve this.
+* A lot of the string variables are quite messy, with no standardized format for answers. I examined these one by one and standardized or re-categorized the possible answers. \
+* First, redesignate all seemingly unreasonable or missing answers (such as "NOT GIVEN" in the "Name" column and "BROWN" in the "Age" column) to None or NANs. \
+* Upon examining the names of the soldiers, there were several cases of people with the same name. For example, 35 observations had only the name "Smith" (most frequently occurring). There is probably a need to deduplicate the observations with similar information that could be indicating the same soldier, since there were no unique personal IDs. For example, could J. SMITH and JOHN SMITH and J SMITH be the same person? I used the pandas dedupe package to achieve this.
