@@ -12,7 +12,7 @@ The dataset is tab delimited so I transformed it to real CSV format in excel for
 
 The raw dataset is pretty messy in the following aspects:
 1. A lot of variables are highly missing: about 70% of data is missing in the entire dataset. The dataset has 229 variables with 20,406 rows, and only 90 columns have less than 80% of information missing. 
-2. Duplicate columns: Same information was asked slightly differently; I suspect that this is because different forms are used for different people. For example: 
+2. Duplicate columns: Same information was asked slightly differently; I suspect that this is because different forms were used for different people. For example: 
    MARREE and MARSTAT both contain information about marital status, but have different amounts of information
    All following columns are about grandparent birth places: BRTH_GP1, BRTH_GP2, GRNDBEE, GRNDFBEE, GRNDMBEE, USGP1, USGP2, USGRAND 
 3. A lot of entry errors and non-standardized entry. 
@@ -29,4 +29,4 @@ I checked all 229 variables in the variables list and selected 33 variables with
 #### data cleaning for specific variables
 A lot of the string variables are quite messy, with no standardized format for answers. I examined these one by one and standardized or re-categorized the possible answers.
 First, redesignate all seemingly unreasonable or missing answers (such as "NOT GIVEN" in the "Name" column and "BROWN" in the "Age" column) to None or NANs. 
-Upon examining the names of the soldiers, there were several people with the same name. For example, 35 observations had only the name "Smith" (most frequently occurring). There is probably a need to deduplicate the observations with similar information that could be indicating the same soldier. I used
+Upon examining the names of the soldiers, there were several cases of people with the same name. For example, 35 observations had only the name "Smith" (most frequently occurring). There is probably a need to deduplicate the observations with similar information that could be indicating the same soldier, since there were no unique personal IDs. I used the pandas dedupe package to achieve this.
