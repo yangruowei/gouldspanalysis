@@ -109,6 +109,51 @@ Out[67]: 31.533619034609554
 In [70]: gould['Hip_circumference'].mean()                                      
 Out[70]: 36.40772857879614
 
+Shoulder width outlier: 115.796875       1
+In [73]: gould['Shoulder_width'].mean()                                         
+Out[73]: 14.548599723044939
+
+In [75]: gould['Arm_length'].mean()                                             
+Out[75]: 29.36053375051804
+OUtlier: 0.199982        1
+
+In [79]: gould['Height_to_neck'].mean()                                         
+Out[79]: 57.12283036737298
+OUtlier:
+0.299988        2
+5.000000        1
+
+In [81]: gould['Height_to_perinaeum'].mean()                                    
+Out[81]: 31.298136525607465
+Outlier: 2.500000        1
+3.799805        1
+3.500000        1
+
+In [84]: gould['Neck_breadth'].mean()                                           
+Out[84]: 4.198265939545396
+Outlier: 41.000000       1
+
+In [87]: gould['Pelvis_breadth'].mean()                                         
+Out[87]: 12.205474131425747
+
+In [90]: gould['Chest_capacity'].mean()                                         
+Out[90]: 178.2178788549421
+
+In [96]: gould['Dynamome'].mean()                                               
+Out[96]: 320.8356509509184
+
+In [131]: gould['Eye_clr'].value_counts()                                       
+Out[131]: 
+BLUE      7303
+BROWN     4093
+GRAY      2489
+BLACK     2090
+HAZEL     1950
+DARK        60
+GREEN        5
+YELLOW       3
+OTHER        3
+
 
 
 How to process place/location variables? 
