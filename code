@@ -226,6 +226,10 @@ gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['WAR', 
 gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['REJECTED', 'TILL MARCH', '1861'], \
 'OTHER UNSPECIFIED')
 
+# Examiner:
+gould['Examiner'] = gould['Examiner'].replace(['11','POOR'], np.nan) 
+gould['Examiner'] = gould['Examiner'].astype('category') 
+
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 
