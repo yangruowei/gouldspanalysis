@@ -177,6 +177,7 @@ gould_formatted['Rank'] = gould_formatted['Rank'].replace(['CITIZEN', 'BOY', 'PI
 'CAFLAUI', 'CITIZEN&SUTTER?', 'SUBSTITUTE', 'RECRUIT?', 'DRAFTED', 'GUNMAN', 'LARQUIAT', 'RECRUIT'], 'OTHER')
 # drop first two rows with skipped entries
 gould_formatted = gould_formatted.drop([0, 1]) 
+gould_formatted['Rank'] = gould_formatted['Rank'].astype('category') 
 
 # Enlist location
 gould_formatted['Enlist_location'] = gould_formatted['Enlist_location'].astype('category') 
@@ -225,13 +226,54 @@ gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['WAR', 
 # Other unspecified
 gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].replace(['REJECTED', 'TILL MARCH', '1861'], \
 'OTHER UNSPECIFIED')
+gould_formatted['Enlist_term'] = gould_formatted['Enlist_term'].astype('category') 
+
+# Registration state:
+gould['Regi_state'] = gould['Regi_state'].astype('category') 
 
 # Examiner:
 gould['Examiner'] = gould['Examiner'].replace(['11','POOR'], np.nan) 
 gould['Examiner'] = gould['Examiner'].astype('category') 
 
+# Examination place:
+gould['Examplac'] = gould['Examplac'].astype('category') 
+
+# Eye color:
+# Blue
+gould['Eye_clr'] = gould['Eye_clr'].replace(['LIGHT BLUE', 'LT BLUE', 'DARK BLUE', 'DK BLUE', \
+'D BLUE', 'BL', 'LT. BLUE', 'D.BLUE', 'DK.BLUE', 'BLUE DK', 'BLUE LT', 'PALE BLUE', 'BLLUE', 'BLUE-GRAY', \
+'NLUE', 'BLUE/GREY', 'BLU', 'BLUE/GRAY', 'BLU3', 'LBLUE', 'LIGH BLUE', 'L BLUE', 'LIGHTBLUE', \
+'BLUE&GREY', 'LT.BLUE', 'BLUISHGREY', 'BLUEN', 'BLUR', 'BLUE/BROWN', 'BLOUE', 'LTBLUE', 'LT B', 'DK. BLUE', \
+'LT PALE BL'], 'BLUE')
+# Brown
+gould['Eye_clr'] = gould['Eye_clr'].replace(['DK BROWN', 'D BROWN', 'BR', 'DARK BROWN', \
+'DK BR', 'LT BROWN', 'DBROWN', 'DARKBROWN', 'BROWN DK', 'LIGHT BROW', 'LT BR', 'LIGHTBROWN', 'LT. BROWN', 'DK.BROWN', \
+'DK. BROWN', 'LTBROWN', 'DRK BROWN', 'D.BROWN', 'D. BROWN', 'BRWON', 'NR', 'DRKBROWN', 'LT.BROWN', \
+'DROWN', 'DKD BROWN', 'DAKR BROWN', 'BROWNA', 'LBROWN', 'DKB ROWN', 'DKBROWN', 'DARKBRIWN', 'DK BAROWN', \
+'DJ BR', 'LI BROWN', 'BROAN', 'D BR', 'D BROWBN', 'LR BR', 'DRAK BROWN', 'ABROWN', 'BRORWN'], 'BROWN')
+# Black
+gould['Eye_clr'] = gould['Eye_clr'].replace(['BLK', 'BLAK', 'BALCK', 'LT.BLACK', 'NEAR BLACK'], 'BLACK')
+# Hazel
+gould['Eye_clr'] = gould['Eye_clr'].replace(['HAZLE', 'DK HAZEL', 'DARK HAZEL', 'LT HAZEL', \
+'DK HAZLE', 'DK.HAZEL', 'DK. HAZEL', 'LIGHT HAZE', 'HAZEL DK', 'HAVEL', 'D.HAZEL', \
+'LT.HAZEL', 'HZEL', 'HHAZEL'], 'HAZEL')
+# Gray
+gould['Eye_clr'] = gould['Eye_clr'].replace(['GREY', 'GR', 'DARK GREY', 'DK GRAY', 'DK GREY', \
+'LIGHT GREY', 'LT GRAY', 'GREY-BLUE', 'DK. GRAY', 'GREY DK', 'LY GRAY', 'BREY', \
+'GREY/HAZEL', 'GLAY', 'GRAR', '1 GRAY', 'LT GREY', 'LIGHTGRAY', 'LIGHT GRAY'], 'GRAY')
+# Green
+gould['Eye_clr'] = gould['Eye_clr'].replace(['LT GREEN', 'GREENHAZEL'], 'GREEN')
+# Yellow
+gould['Eye_clr'] = gould['Eye_clr'].replace('YELLOWISH', 'YELLOW')
+# Other
+gould['Eye_clr'] = gould['Eye_clr'].replace(['DARKMAN', 'LT', 'LIGHT'], 'OTHER')
+# missinsg
+gould['Eye_clr'] = gould['Eye_clr'].replace(['WAVY', 'AVERAGE', 'STRAIGHT', "DON'T KNOW", 'GOOD'], np.nan)
+gould['Eye_clr'] = gould['Eye_clr'].astype('category') 
+
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
+gould.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
 # examine missing values from entire dataset
