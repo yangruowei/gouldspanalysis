@@ -27,4 +27,6 @@ The raw dataset is pretty messy in the following aspects:
 #### selecting and organizing columns
 I checked all 229 variables in the variables list and selected 33 variables with reasonably complete information. I then re-named all columns for better readability, standardized the column names (all capitalized) and re-orderd the columns that could be roughly grouped into the following groups: demographics, military information, anthropometrics, vigor, appearance, health condition. 
 #### data cleaning for specific variables
-Need to dedupe: a lot of rows with exact the same names, because 
+A lot of the string variables are quite messy, with no standardized format for answers. I examined these one by one and standardized or re-categorized the possible answers.
+First, redesignate all seemingly unreasonable or missing answers (such as "NOT GIVEN" in the "Name" column and "BROWN" in the "Age" column) to None or NANs. 
+Upon examining the names of the soldiers, there were several people with the same name. For example, 35 observations had only the name "Smith" (most frequently occurring). There is probably a need to deduplicate the observations with similar information that could be indicating the same soldier. I used
