@@ -307,6 +307,41 @@ gould['Haircolr'] = gould['Haircolr'].replace(['LIGHT', 'DARK', 'LT', 'WHITE', '
 gould['Haircolr'] = gould['Haircolr'].replace(['ILLEGIBLE', 'ST', 'PR', "OFF", 'MACHINIST', \
 'FARMER', 'SEAMAN', 'SAILOR', 'RUST', 'LARGE'], np.nan)
 
+# Complexion
+# Fair
+gould['Complexion'] = gould['Complexion'].replace(['FA', 'FARI', 'PALE', 'FAI', 'NFAIR', \
+'1FAIR', 'FAIR1', 'FAIT', 'FAIRY', 'FAIRLY WHI', 'FAAIR', 'FAIRM', 'WH', 'FIR', 'WHITE'], 'FAIR')
+# Dark
+gould['Complexion'] = gould['Complexion'].replace(['DK', 'ARK', 'D', 'DK COPPER', 'DARK RUDDY', \
+'DADRK', 'DK BROWN', 'DARKBROWN', 'DARKK', 'DARK OLIVE', 'MULATTO', 'DARK BROWN', 'DARK 80.', \
+'D. BROWN', 'DAARK', 'VERY DARK', 'TANNED', 'DA', 'TAN', 'D BROWN', 'DEEP BR', 'SUN TANNED', \
+'DK.BROWN', 'MU'], 'DARK')
+# Red
+gould['Complexion'] = gould['Complexion'].replace(['RUDDY', 'FLORID', 'FLORID?', 'RUUDY', \
+'FL', 'BUDDY', 'FLOIRD', 'RUDDY/FAIR', 'FUDDY', 'FLORIS', 'YRUDDY', 'BROWN(RED)', 'RUBBY'], 'RED')
+# Black
+gould['Complexion'] = gould['Complexion'].replace(['BLK', 'BL', 'BLAK', 'VERY BLACK', \
+'NEAR BLACK', 'B', 'GLACK'], 'BLACK')
+# Light
+gould['Complexion'] = gould['Complexion'].replace(['LT', 'LI', 'LT/FAIR', 'LT BR', \
+'LT YELLOW', 'LT BROWN', 'LIGHT/FAIR', 'LIGFHT', 'LIGHTYELLO', 'LGHTBROWN', \
+'L YELLOW', 'LT BLUE', 'LIGHT FAIR', 'L SANDY', 'LBROWN'], 'LIGHT')
+# Medium
+gould['Complexion'] = gould['Complexion'].replace(['MED', 'ME', 'MEDIUDM', 'MEIUM', \
+'MED.'], 'MEDIUM')
+# Robust
+gould['Complexion'] = gould['Complexion'].replace(['ROB', 'ROBUSR', 'ROBUSUT'], 'ROBUST')
+# Brown
+gould['Complexion'] = gould['Complexion'].replace(['BR', 'SANDY'], 'BROWN')
+# Yellow
+gould['Complexion'] = gould['Complexion'].replace(['YE', 'SALLOW', 'TALLOW', 'TALLON', 'FALLOW', \
+'SALLON', 'TAWNY', 'YELLLOW'], 'YELLOW')
+# Other
+gould['Complexion'] = gould['Complexion'].replace(['RU', 'RE', 'OLIVE', 'SUNDDRY', 'BRONZED', \
+'OLIVE BR', 'FINE', 'GREY'], 'OTHER')
+# Missing
+gould['Complexion'] = gould['Complexion'].replace(['NO DATA', 'GOOD', 'STRAIGHT', 'ST', \
+'NOT LEGIBL', '0', 'BRANDY', 'VE', 'SA', 'BT', 'WIDOWER', 'K', '??', '?', 'LARGE'], np.nan)
 
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
