@@ -187,6 +187,25 @@ SMALL           88
 DEFICIENT       26
 Name: Muscle_dev, dtype: int64
 
+In [86]: gould['St_vigor'].value_counts()                                       
+Out[86]: 
+Y    14909
+N     2761
+Name: St_vigor, dtype: int64
+
+In [92]: gould['Athletic_recreation'].value_counts()                            
+Out[92]: 
+N    6100
+Y    4867
+Name: Athletic_recreation, dtype: int64
+
+In [95]: gould['Eyes_prom'].value_counts()                                      
+Out[95]: 
+N    13596
+Y     2083
+Name: Eyes_prom, dtype: int64
+
+
 
 Doesn't seem to convert to categorical variables once saved to dataset
 
