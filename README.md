@@ -177,6 +177,15 @@ YELLOW     118
 OTHER       24
 Name: Complexion, dtype: int64
 
+In [82]: gould['Muscle_dev'].value_counts()                                     
+Out[82]: 
+GOOD         11685
+MODERATE      3142
+LARGE          976
+FULL           272
+SMALL           88
+DEFICIENT       26
+Name: Muscle_dev, dtype: int64
 
 
 Doesn't seem to convert to categorical variables once saved to dataset
