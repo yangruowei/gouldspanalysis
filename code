@@ -373,6 +373,29 @@ gould['Athletic_recreation'] = gould['Athletic_recreation'].replace('BROWN', np.
 gould['Eyes_prom'] = gould['Eyes_prom'].replace(['FAIR', 'F'], np.nan)
 
 # Teeth condition
+# Good
+gould['Teeth_con'] = gould['Teeth_con'].replace(['SOUND', 'PERFECT', 'GOO', 'SOUN', \
+'GOOD; SEVERAL', 'GOD', 'GOOS', 'VERY GOOD', 'DOUND', 'ALL GOOD', 'GOOD0', 'GOOD & SOUND', \
+"GOOD'", 'DOOD', 'GO0D', 'G00D', 'PRETTY GOOD', 'GOOD IN THE FR', 'GOODD', 'GGOD', \
+'SOUNDGOOD', 'PRETTY SOUND', 'SOUND; SEVERAL', 'REST GOOD', 'LGOOD', 'SOUNED', 'FINE', \
+'SOUND--5 FALSE', 'GOOE'], 'GOOD')
+# Poor
+gould['Teeth_con'] = gould['Teeth_con'].replace(['BAD', 'POOR; SEVERAL', 'POOR; NEARLY A', \
+'POOR-SEVERAL', 'ALL GONE', 'VERY POOR', 'POOR; ALL TEET', 'POOR-ALL GONE', 'PPOR', \
+'POOR-IRREGULAR', 'LOST MOST ALL', 'POO', 'POOR-DECAYED', 'POOR; ALL DECA', 'PRETTY POOR', \
+'BADLY DECAYED', 'POOR LOST SEVE', 'POOR4', 'DECAYED MOST A', 'BAD-SEVERAL', 'POOR; LOST MOS', \
+'POOR; NEALRLY', 'POOR; LOST SEV', 'POOR-ALL LOOSE', 'VERY BAD', 'RHEUMATISM', 'FEW POOR', \
+'BAD; SEVERAL L', 'POOR ; NEARLY', 'POOR-NEAR ALL', 'REST POOR', 'POOR; LOST NEA', 'POOO', \
+'NO TEETH'], 'POOR')
+# Fair
+gould['Teeth_con'] = gould['Teeth_con'].replace(['MED.', 'MED', 'MEDIUM', 'NOT SOUND', 'NOT GOOD', \
+'ORDINARY', 'MID', 'UNSOUND', 'MOD', 'MIDDLE', 'MODERATE', 'NOT VERY', 'MIDDLING', 'NOT VERY GOOD', \
+'AVERAGE', 'NO SOUND', 'NOT SOUN', 'REAR FAIR', 'NGOOD', 'NOT BEST', 'IS NOT GOOD', 'MOD   ABOVE: "', \
+'FIAR'], 'FAIR')
+# Missing
+gould['Teeth_con'] = gould['Teeth_con'].replace(['YES', 'INDIFFERENT', 'NO', 'SEVERAL', 'FALSE', \
+'REST FINE', 'NO DATA', 'SAME', 'ARTIFICIAL', 'LOOSE', '8', 'NOT'], np.nan)
+
 
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
