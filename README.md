@@ -205,6 +205,11 @@ N    13596
 Y     2083
 Name: Eyes_prom, dtype: int64
 
+In [105]: gould['Teeth_con'].value_counts()                                     
+Out[105]: 
+GOOD    12382
+POOR     2715
+FAIR      458
 
 
 Doesn't seem to convert to categorical variables once saved to dataset
