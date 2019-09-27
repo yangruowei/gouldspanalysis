@@ -271,6 +271,43 @@ gould['Eye_clr'] = gould['Eye_clr'].replace(['DARKMAN', 'LT', 'LIGHT'], 'OTHER')
 gould['Eye_clr'] = gould['Eye_clr'].replace(['WAVY', 'AVERAGE', 'STRAIGHT', "DON'T KNOW", 'GOOD'], np.nan)
 gould['Eye_clr'] = gould['Eye_clr'].astype('category') 
 
+# Hair color
+# Brown
+gould['Haircolr'] = gould['Haircolr'].replace(['DK BROWN', 'BR', 'DARK BROWN', 'LT BROWN', \
+'LIGHT BROWN', 'DK BR', 'LT BR', 'DK.BROWN', 'LT. BROWN', 'BROWN DK', 'LT.BROWN', \
+'DK. BROWN', 'D BROWN', 'BROWN LT', 'LIGHT BROW', 'BROWN/GREY', 'L.BROWN', 'D.BROWN', \
+'BROWN/GRAY', 'BR & GRAY', 'BRONW', 'BRWON', 'LR BR', 'BROWN DARK', 'L BROWN', \
+'LIGHT BR', 'BORWN', 'D. BROWN', 'DRK BROWN', 'DARKBROWN', 'REDDISH BROWN', 'BRWN/GREY', \
+'BOWN', 'BROWN LIGHT', 'BROWN&GREY', 'DK  BROWN', 'BROW', 'DRKBROWN', 'LIGHTBROWN', \
+'BK BROWN', 'DARK BR', 'BRWN', 'BROWNMEDIU', 'BTOWN', 'BR & GR', 'BROWNA', 'LT/BROWN', \
+'DK BRR', 'BROWNAVERAGE', 'DK BR/GREY', 'DDK BROWN', 'BR/GREY', 'L.BRWN/GRE', 'BROWN K', \
+'LK.BROWN', 'BROWN D', 'BRON', 'DK BR;GREY', 'BROWN IRON', 'BEOWN', 'DJ BR', 'BROWON', \
+'LTBROWN', 'K BROWN', 'DJ BRIWB', 'LT BROWNSC', 'BROWB', 'BRWON DK', 'SOFT BR', 'BROWN&GRAY', \
+'BROWN/BALD', 'BROWNGE', 'DK. BRIWN', 'DARKK BROWN', 'LT  BROWN', 'BROEN', 'BROWN LT.', \
+'LIGHT BRO', 'LT.BRPWN', 'OIGHT BROWN', 'LT. BROEN', 'BROWN & GR', 'BROWN-GREY', "BROWN'", 'DRAK BROWN', \
+'BR & GREY', 'SANDY', 'LT SANDY', 'SANDY BROW', 'SANY', 'LIGHT SANDY', 'SANDT', \
+'SAVOY', 'CHESTNUT'], 'BROWN')
+# Black
+gould['Haircolr'] = gould['Haircolr'].replace(['BLK', 'BLACK/GREY', 'BALCK', 'BLAK', 'BLACK/GRAY', \
+'BLK/GRAY', 'BLAKC', 'LACK', 'DK BLACK', 'BLACKMEDIU', 'BLAC', 'BLK & GRAY', 'BLACK-GRAY', 'BLCK', \
+'BLACKA', 'BK', 'BLACK&GREY', 'BLLACK'], 'BLACK')
+# Red
+gould['Haircolr'] = gould['Haircolr'].replace(['AUBURN', 'LT AUBURN', 'DK AUBURN', 'AUBURN DK', \
+'LIGHT AUBURN', 'AUBUSRN', 'AUBURN/GRY', 'DK. AUBURN', 'L.AUBURN', 'DARK AUBURN', 'LIGHT RED', \
+'AUBURN AVE', 'AUB/GREY'], 'RED')
+# Gray
+gould['Haircolr'] = gould['Haircolr'].replace(['GREY', 'IRON GRAY', 'GRAY/BROWN', 'GRAY/BLACK', \
+'IRON GREY', 'GRY/BLACK', 'GREY/BLACK', 'MIX GREY', 'MIX GRAY', 'GREY/BROWN', 'GREY-BROWN', \
+'LIGHTG', 'LT GREY', 'GREY(BLK)', 'GRY/BROWN', 'STOVE GRAY'], 'GRAY')
+# Other
+gould['Haircolr'] = gould['Haircolr'].replace(['LIGHT', 'DARK', 'LT', 'WHITE', 'DK', 'FLAXEN', \
+'AMBER', 'BLUE', 'HAZEL', 'VERY LIGHT', 'LIGHT MED', 'MEDIUM', 'TAN', 'NTOEN', 'YELLOW', 'SILVER', \
+'VERY DARK', 'MIXED LIGH'], 'OTHER')
+# missinsg
+gould['Haircolr'] = gould['Haircolr'].replace(['ILLEGIBLE', 'ST', 'PR', "OFF", 'MACHINIST', \
+'FARMER', 'SEAMAN', 'SAILOR', 'RUST', 'LARGE'], np.nan)
+
+
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 gould.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
