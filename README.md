@@ -154,6 +154,17 @@ GREEN        5
 YELLOW       3
 OTHER        3
 
+In [28]: gould['Haircolr'].value_counts()                                       
+Out[28]: 
+BROWN    11943
+BLACK     3455
+RED        366
+OTHER      337
+GRAY       146
+Name: Haircolr, dtype: int64
+
+
+
 
 Doesn't seem to convert to categorical variables once saved to dataset
 
