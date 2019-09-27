@@ -343,6 +343,26 @@ gould['Complexion'] = gould['Complexion'].replace(['RU', 'RE', 'OLIVE', 'SUNDDRY
 gould['Complexion'] = gould['Complexion'].replace(['NO DATA', 'GOOD', 'STRAIGHT', 'ST', \
 'NOT LEGIBL', '0', 'BRANDY', 'VE', 'SA', 'BT', 'WIDOWER', 'K', '??', '?', 'LARGE'], np.nan)
 
+# Muscle development
+# Moderate
+gould['Muscle_dev'] = gould['Muscle_dev'].replace(['MODERTE', 'MEDIUM', 'MED', 'MOD', \
+'MODERAT', 'AVERAGE', 'MODERTAE', 'MODERAE', 'NODERATE', 'MODRATE', 'MODEREATE', 'MODEERATE', \
+'MODERWATE', 'MODREATE', 'MMODERATE', 'MODERASTE', 'MEDERATE', 'MIDDLING', 'FAIR'], 'MODERATE')
+# Large
+gould['Muscle_dev'] = gould['Muscle_dev'].replace(['VERY LARGE', 'FARGE', 'LAARGE'], 'LARGE')
+# Good
+gould['Muscle_dev'] = gould['Muscle_dev'].replace(['GODD', 'PRETTY GOOD', 'GGOD', \
+'VERY GOOD', 'muscle'], 'GOOD')
+# Small
+gould['Muscle_dev'] = gould['Muscle_dev'].replace(['NOT LARGE', 'SAMLL', 'NOT VERY GOOD', \
+'NOT VERY'], 'SMALL')
+# Full
+gould['Muscle_dev'] = gould['Muscle_dev'].replace(['VERY', 'FULUL'], 'FULL')
+# Deficient
+gould['Muscle_dev'] = gould['Muscle_dev'].replace(['DIFICIENT', 'SCANTY'], 'DEFICIENT')
+# Missing
+gould['Muscle_dev'] = gould['Muscle_dev'].replace('FLORID', np.nan)
+
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 gould.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
