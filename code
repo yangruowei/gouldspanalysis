@@ -363,6 +363,17 @@ gould['Muscle_dev'] = gould['Muscle_dev'].replace(['DIFICIENT', 'SCANTY'], 'DEFI
 # Missing
 gould['Muscle_dev'] = gould['Muscle_dev'].replace('FLORID', np.nan)
 
+# Vigor
+gould['St_vigor'] = gould['St_vigor'].replace(['T', '13'], np.nan)
+
+# Athletic recreation
+gould['Athletic_recreation'] = gould['Athletic_recreation'].replace('BROWN', np.nan)
+
+# Eyes prominent
+gould['Eyes_prom'] = gould['Eyes_prom'].replace(['FAIR', 'F'], np.nan)
+
+# Teeth condition
+
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 gould.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
