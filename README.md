@@ -163,6 +163,19 @@ OTHER      337
 GRAY       146
 Name: Haircolr, dtype: int64
 
+In [62]: gould['Complexion'].value_counts()                                     
+Out[62]: 
+FAIR      6797
+DARK      3511
+RED       1766
+BLACK     1116
+LIGHT      931
+MEDIUM     437
+ROBUST     430
+BROWN      219
+YELLOW     118
+OTHER       24
+Name: Complexion, dtype: int64
 
 
 
