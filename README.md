@@ -37,6 +37,7 @@ Numerical: descriptive (mean, median, range, standard deviation), boxplots
 
 * General appearance of the population: Produce frequency tables of different combinations of eye color, hair color, complexion and muscle development. 
 * Make use of place/location variables: St_ctry_birth, Father_birthplace, Enlist_location, Regi_state, Examplac. -> create geographical maps.
+* Modelling: demographics, anthropometrics to predict health condition
 
 
 
