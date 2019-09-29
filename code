@@ -396,6 +396,11 @@ gould['Teeth_con'] = gould['Teeth_con'].replace(['MED.', 'MED', 'MEDIUM', 'NOT S
 gould['Teeth_con'] = gould['Teeth_con'].replace(['YES', 'INDIFFERENT', 'NO', 'SEVERAL', 'FALSE', \
 'REST FINE', 'NO DATA', 'SAME', 'ARTIFICIAL', 'LOOSE', '8', 'NOT'], np.nan)
 
+# Dedupe based on a few identifiers
+import pandas_dedupe
+gould_final = pandas_dedupe.dedupe_dataframe(gould, ['Name', 'Age', 'American', 'St_ctry_birth', \
+'Marital_status', 'Rank', 'Enlist_location', 'Examiner']) 
+
 
 # save dataset
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
