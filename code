@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 
 # import data
 gould = pd.read_csv("/Users/ruowei/Desktop/ds learning/NBER data/gouldallr.csv")
+or 
+gould = pd.read_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv")
 
 # examine data structure
 gould.head()
