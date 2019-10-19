@@ -34,10 +34,11 @@ I then re-named all columns for better readability, standardized the column name
 
 #### Data visualization
 Countplots for categorical variables:
-
-
+Description
+Histograms for numerical variables:
+Description
 Bivariate analysis:
-Numerical: descriptive (mean, median, range, standard deviation), boxplots
+boxplots, scatterplots?
 
 * Make use of place/location variables: St_ctry_birth, Father_birthplace, Enlist_location, Regi_state, Examplac. -> create geographical maps.
 * Modelling: demographics, anthropometrics to predict health condition
