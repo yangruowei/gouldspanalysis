@@ -31,7 +31,11 @@ I then re-named all columns for better readability, standardized the column name
 * A lot of the string variables are quite messy, with no standardized format for answers. I examined these one by one and standardized or re-categorized the possible answers. 
 * First, redesignate all seemingly unreasonable or missing answers (such as "NOT GIVEN" in the "Name" column and "BROWN" in the "Age" column) to None or NANs. 
 * Upon examining the names of the soldiers, there were several cases of people with the same name. For example, 35 observations had only the name "Smith" (most frequently occurring). There is probably a need to deduplicate the observations with similar information that could be indicating the same soldier, since there were no unique personal IDs. For example, could J. SMITH and JOHN SMITH and J SMITH be the same person? I used the pandas dedupe package to achieve this. During the labelling process, there didn't seem to be records that are duplicates of each other, and the dedupe process could not be completed. I went ahead and created a unique ID for all records.
-* Data visualization: Using Seaborn plots：categorical variables: countplots
+
+#### Data visualization
+Countplots for categorical variables:
+
+
 Bivariate analysis:
 Numerical: descriptive (mean, median, range, standard deviation), boxplots
 
