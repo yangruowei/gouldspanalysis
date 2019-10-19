@@ -433,6 +433,23 @@ Athletic_recreation  = sns.countplot(x = 'Athletic_recreation', data = gould);
 Eyes_prom  = sns.countplot(x = 'Eyes_prom', data = gould);   
 Teeth_con  = sns.countplot(x = 'Teeth_con', data = gould); 
 
+# Histograms for numerical variables
+# delete outlier of age:
+gould['Age'] = gould['Age'].replace([109.5], np.nan)
+sns.set(style='whitegrid', palette="deep", font_scale=1.1, rc={"figure.figsize": [8, 5]})
+sns.distplot(gould['Age'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Age', ylabel='Count');
+sns.distplot(gould['Height'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Height', ylabel='Count');
+sns.distplot(gould['Weight'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Weight', ylabel='Count')  
+sns.distplot(gould['Waist_circumference'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Waist_circumference', ylabel='Count')  
+sns.distplot(gould['Hip_circumference'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Hip_circumference', ylabel='Count') 
+sns.distplot(gould['Shoulder_width'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Shoulder_width', ylabel='Count') 
+sns.distplot(gould['Arm_length'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Arm_length', ylabel='Count') 
+sns.distplot(gould['Height_to_neck'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Height_to_neck', ylabel='Count')
+sns.distplot(gould['Height_to_perinaeum'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Height_to_perinaeum', ylabel='Count') 
+sns.distplot(gould['Neck_breadth'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Neck_breadth', ylabel='Count') 
+sns.distplot(gould['Pelvis_breadth'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Pelvis_breadth', ylabel='Count')  
+sns.distplot(gould['Chest_capacity'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Chest_capacity', ylabel='Count')     
+sns.distplot(gould['Dynamome'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Dynamome', ylabel='Count') 
 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
