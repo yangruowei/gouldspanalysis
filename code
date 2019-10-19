@@ -410,6 +410,13 @@ gould.insert(0, 'ID', gould.index + 1)
 gould_formatted.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 gould.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv") 
 
+# data visualization using seaborn
+
+# Count plots for ategorical variables
+import seaborn as sns
+sns.countplot(gould['American']);  
+
+
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
 # examine missing values from entire dataset
 print(gould.isnull().values.sum())
