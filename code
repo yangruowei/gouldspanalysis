@@ -415,6 +415,24 @@ gould.to_csv("/Users/ruowei/Desktop/ds learning/NBER data/gould_f2.csv")
 # Count plots for ategorical variables
 import seaborn as sns
 sns.countplot(gould['American']);  
+sns.countplot(gould['Marital_status']);  
+rank = sns.countplot(x = 'Rank', data = gould); 
+rank.set_xticklabels(rank.get_xticklabels(), rotation = 40, ha = "right") 
+rank.set_xticklabels(rank.get_xticklabels(), fontsize=6)
+term = sns.countplot(x = 'Enlist_term', data = gould); 
+term.set_xticklabels(term.get_xticklabels(), rotation = 20, ha = "right") 
+term.set_xticklabels(term.get_xticklabels(), fontsize=6)  
+examiner  = sns.countplot(x = 'Examiner', data = gould); 
+eye_color  = sns.countplot(x = 'Eye_clr', data = gould);    
+Complexion  = sns.countplot(x = 'Complexion', data = gould); 
+Complexion.set_xticklabels(Complexion.get_xticklabels(), rotation = 20, ha = "right")  
+Complexion.set_xticklabels(Complexion.get_xticklabels(), fontsize=6)
+muscle_development  = sns.countplot(x = 'Muscle_dev', data = gould); 
+vigor  = sns.countplot(x = 'St_vigor', data = gould);  
+Athletic_recreation  = sns.countplot(x = 'Athletic_recreation', data = gould);  
+Eyes_prom  = sns.countplot(x = 'Eyes_prom', data = gould);   
+Teeth_con  = sns.countplot(x = 'Teeth_con', data = gould); 
+
 
 
 # can be used to create categorical subset: import copy cat_gould = gould.select_dtypes(include = ['object']).copy()
