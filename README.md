@@ -38,7 +38,7 @@ Countplots for categorical variables:
 Description
 Histograms for numerical variables:
 Description
-#### Univariate analysis
+#### Bivariate analysis
 Bivariate analysis:
 boxplots, scatterplots?
 #### Geogrophical visualization
