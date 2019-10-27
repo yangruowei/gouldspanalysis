@@ -465,3 +465,12 @@ sns.distplot(gould['Pelvis_breadth'], norm_hist=False, kde=False, bins=20, hist_
 sns.distplot(gould['Chest_capacity'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Chest_capacity', ylabel='Count')     
 sns.distplot(gould['Dynamome'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Dynamome', ylabel='Count') 
 
+# Building a logistic regression model
+# examine correlations between continuous variables:
+corr = gould.corr() 
+g = sns.heatmap(corr,  vmax=.3, center=0, 
+square=True, linewidths=.3, cbar_kws={"shrink": .5}, annot=True, fmt='.2f', cmap='coolwarm') 
+sns.despine() 
+g.figure.set_size_inches(14,10) 
+plt.show()
+
