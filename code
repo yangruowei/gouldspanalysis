@@ -440,9 +440,13 @@ sns.set(style='whitegrid', palette="deep", font_scale=1.1, rc={"figure.figsize":
 sns.distplot(gould['Age'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Age', ylabel='Count');
 sns.distplot(gould['Height'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Height', ylabel='Count');
 sns.distplot(gould['Weight'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Weight', ylabel='Count')  
+Delete outlier for waist curcumference
+gould['Waist_circumference'] = gould['Waist_circumference'].replace([353], np.nan)
 sns.distplot(gould['Waist_circumference'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Waist_circumference', ylabel='Count')  
 sns.distplot(gould['Hip_circumference'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Hip_circumference', ylabel='Count') 
 sns.distplot(gould['Shoulder_width'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Shoulder_width', ylabel='Count') 
+Delete outlier for arm length
+gould['Arm_length'] = gould['Arm_length'].replace([0.199982], np.nan)
 sns.distplot(gould['Arm_length'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Arm_length', ylabel='Count') 
 sns.distplot(gould['Height_to_neck'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Height_to_neck', ylabel='Count')
 sns.distplot(gould['Height_to_perinaeum'], norm_hist=False, kde=False, bins=20, hist_kws={"alpha": 1}).set(xlabel='Height_to_perinaeum', ylabel='Count') 
