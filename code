@@ -474,13 +474,54 @@ sns.despine()
 g.figure.set_size_inches(14,10) 
 plt.show()
 
+# create dummy variables for categorical variables
+cat_vars=['American', 'Marital_status', 'Rank', 'Enlist_term']
+for var in cat_vars:
+    cat_list='var'+'_'+var
+    cat_list = pd.get_dummies(gould[var], prefix=var)
+    gould1=gould.join(cat_list)
+    gould=gould1
+
 # For vigor as target variable:
 #split dataset in features and target variable
-feature_cols = ['Age', 'American', 'Marital_status', 'Rank','Enlist_term','Height','Weight', 'Waist_circumference', \
-'Hip_circumference', 'Shoulder_width', 'Arm_length', 'Height_to_neck', 'Height_to_perinaeum', 'Neck_breadth', 'Pelvis_breadth']
-X = gould[feature_cols] 
-y = gould.St_vigor
+to_drop =['ID', 'Name', 'American', 'St_ctry_birth', 'Father_birthplace', 'Marital_status', 'Rank', \
+'Enlist_location', 'Enlist_term', 'Regi_state', 'Examiner', 'Examplac', 'Chest_capacity', 'Dynamome', \
+'Eye_clr', 'Haircolr', 'Complexion', 'Muscle_dev', 'Athletic_recreation', 'Eyes_prom', 'Teeth_con']
+data_vars=gould.columns.values.tolist()
+to_keep=[i for i in data_vars if i not in to_drop]
+gould_final1=gould[to_keep]
+gould_final1.columns.values
 
-# spliting data
-from sklearn.cross_validation import train_test_split
+X = gould_final1.loc[:, gould_final1.columns != 'St_vigor']
+y = gould_final1.loc[:, gould_final1.columns == 'St_vigor']
+
+# impute missing values
+imp = Imputer(missing_values='NaN', strategy='mean', axis=0)
+X = imp.fit_transform(X)
+from sklearn.impute import SimpleImputer
+imp_mean = SimpleImputer(strategy='most_frequent')
+imp_mean.fit(y)
+y = imp_mean.transform(y)
+
+# splitting data
+from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0)
+
+# model building
+from sklearn.linear_model import LogisticRegression
+logreg = LogisticRegression()
+logreg.fit(X_train,y_train)
+y_pred=logreg.predict(X_test)
+
+# confusion matrix
+from sklearn import metrics
+cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
+cnf_matrix
+
+# accuracy
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
+
+# ROC curve
+
+
