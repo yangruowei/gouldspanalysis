@@ -34,10 +34,10 @@ I then re-named all columns for better readability, standardized the column name
 
 ### Data visualization
 #### Univariate analysis
-Countplots for categorical variables:
-Description
-Histograms for numerical variables:
-Description
+Countplots for categorical variables: \
+Description: The population has slightly more Americans than non-Americans. Mostly were single, with about half of the single population married, and few widowed. The overwhelming majority of these soldiers were privates, followed by corporal and sergeant. The overwhelming majority of these soldiers were enlisted for 3-4 years, followd by 1-2 years. The two major examiners were Thomas Furnifs and S.B.Buckley. Their eye colors were mostly blue, followed by brown, gray, black and hazel. Hair color was mostly brown, followed by black. Mostly had a fair complexion, followed by dark, red, black and light. Mostly had good muscle development and good vigor. Slightly more soldiers didn't participate in athletic recreations than those who did. Most didn't have prominent eyes and had good teeth condition.
+Histograms for numerical variables: \
+Description: The soldiers mostly aged from 15-30 years. Height mostly from 65 to 70 inches (1.65 to 1.78m). Weight was mostly 130 to 170 lbs. Waist circumference: mostly 30-35 inches. Hip circumference: mostly 30 to 40 inches. Shoulder width: 10 to 20 inches. Arm length: 26.7 to 36.7 inches. 
 #### Bivariate analysis
 Bivariate analysis:
 boxplots, scatterplots?
