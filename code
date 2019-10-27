@@ -474,3 +474,13 @@ sns.despine()
 g.figure.set_size_inches(14,10) 
 plt.show()
 
+# For vigor as target variable:
+#split dataset in features and target variable
+feature_cols = ['Age', 'American', 'Marital_status', 'Rank','Enlist_term','Height','Weight', 'Waist_circumference', \
+'Hip_circumference', 'Shoulder_width', 'Arm_length', 'Height_to_neck', 'Height_to_perinaeum', 'Neck_breadth', 'Pelvis_breadth']
+X = gould[feature_cols] 
+y = gould.St_vigor
+
+# spliting data
+from sklearn.cross_validation import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0)
