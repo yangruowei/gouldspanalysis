@@ -45,6 +45,9 @@ Make use of place/location variables: St_ctry_birth, Father_birthplace, Enlist_l
 I would like to build a logistic regression model to predict health outcomes: vigor, eyes prominent or teeth condition using demographic varibles: age, American, marital status, rank, enlist term; and anthropometrics: height, weight, waist circumference, hip circumference, shoulder width, arm length, height to neck, height to perinaeum, neck breadth and pelvis breadth. \
 First I ran a correlation matrix of all the continous variable and would like to examine variables with a correlation higher than 0.7 to eliminate collinearity. There was none. The highest correlation was 0.64.\
 The result for the three outcomes are:\
-Vigor: accuracy 0.86, class precision 0.5 for N, 0.86 for Y, AUC = 0.67 \
-Eyes prominent: accuracy 0.90, class precision 0.90 for N, 0.00 for Y, AUC = 0.71 \
-Teeth condition: accuracy 0.84, class precision 0.47 for N, 0.85 for Y, AUC = 0.70 
+Vigor: \
+accuracy 0.86, class precision 0.5 for N, 0.86 for Y, AUC = 0.67 \
+Eyes prominent: \
+accuracy 0.90, class precision 0.90 for N, 0.00 for Y, AUC = 0.71 \
+Teeth condition: \
+accuracy 0.84, class precision 0.47 for N, 0.85 for Y, AUC = 0.70 
