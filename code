@@ -544,3 +544,65 @@ plt.plot(fpr,tpr,label="data 1, auc="+str(auc))
 plt.legend(loc=4)
 plt.show()
 
+
+# For eyes prominent as target variable:
+#split dataset in features and target variable
+to_drop =['ID', 'Name', 'American', 'St_ctry_birth', 'Father_birthplace', 'Marital_status', 'Rank', \
+'Enlist_location', 'Enlist_term', 'Regi_state', 'Examiner', 'Examplac', 'Chest_capacity', 'Dynamome', \
+'Eye_clr', 'Haircolr', 'Complexion', 'Muscle_dev', 'Athletic_recreation', 'St_vigor', 'Teeth_con']
+data_vars=gould.columns.values.tolist()
+to_keep=[i for i in data_vars if i not in to_drop]
+gould_final1=gould[to_keep]
+gould_final1.columns.values
+
+X = gould_final1.loc[:, gould_final1.columns != 'Eyes_prom']
+y = gould_final1.loc[:, gould_final1.columns == 'Eyes_prom']
+
+# impute missing values
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(strategy='mean')
+X = imp.fit_transform(X)
+imp_mean = SimpleImputer(strategy='most_frequent')
+imp_mean.fit(y)
+y = imp_mean.transform(y)
+
+# splitting data
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0)
+
+# model building : solved some warning from last iteration
+from sklearn.linear_model import LogisticRegression
+logreg = LogisticRegression(solver = 'liblinear')
+logreg.fit(X_train,y_train.ravel())
+y_pred=logreg.predict(X_test)
+
+# confusion matrix
+from sklearn import metrics
+cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
+cnf_matrix
+
+# output:
+array([[4581,    1],
+       [ 519,    0]])
+
+# accuracy
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
+
+# Output:
+              precision    recall  f1-score   support
+
+           N       0.90      1.00      0.95      4582
+           Y       0.00      0.00      0.00       519
+
+    accuracy                           0.90      5101
+   macro avg       0.45      0.50      0.47      5101
+weighted avg       0.81      0.90      0.85      5101
+
+# ROC curve
+y_pred_proba = logreg.predict_proba(X_test)[::,1]
+fpr, tpr, _ = metrics.roc_curve(y_test,  y_pred_proba, pos_label = 'Y')
+auc = metrics.roc_auc_score(y_test, y_pred_proba)
+plt.plot(fpr,tpr,label="data 1, auc="+str(auc))
+plt.legend(loc=4)
+plt.show()
