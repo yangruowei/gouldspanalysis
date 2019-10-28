@@ -496,12 +496,13 @@ X = gould_final1.loc[:, gould_final1.columns != 'St_vigor']
 y = gould_final1.loc[:, gould_final1.columns == 'St_vigor']
 
 # impute missing values
-imp = Imputer(missing_values='NaN', strategy='mean', axis=0)
-X = imp.fit_transform(X)
 from sklearn.impute import SimpleImputer
+imp = SimpleImputer(strategy='mean')
+X = imp.fit_transform(X)
 imp_mean = SimpleImputer(strategy='most_frequent')
 imp_mean.fit(y)
 y = imp_mean.transform(y)
+
 
 # splitting data
 from sklearn.model_selection import train_test_split
@@ -509,8 +510,8 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0
 
 # model building
 from sklearn.linear_model import LogisticRegression
-logreg = LogisticRegression()
-logreg.fit(X_train,y_train)
+logreg = LogisticRegression(solver = 'liblinear')
+logreg.fit(X_train,y_train.ravel())
 y_pred=logreg.predict(X_test)
 
 # confusion matrix
@@ -570,7 +571,7 @@ y = imp_mean.transform(y)
 from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0)
 
-# model building : solved some warning from last iteration
+# model building : 
 from sklearn.linear_model import LogisticRegression
 logreg = LogisticRegression(solver = 'liblinear')
 logreg.fit(X_train,y_train.ravel())
