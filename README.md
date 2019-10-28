@@ -47,8 +47,9 @@ First I ran a correlation matrix of all the continous variable and would like to
 The result for the three outcomes are the following: \
 Vigor: \
 Confusion matrix \
-([[   3,  712], \
-[   3, 4383]])\
+# output:
+array([[   3,  712],
+       [   3, 4383]])
 Accuracy: \
           precision    recall  f1-score   support
 
